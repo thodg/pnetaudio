@@ -7,14 +7,19 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "prefWindowController.h"
 
 @interface pnetaudioAppDelegate : NSObject <NSApplicationDelegate> {
 @private
-    NSStatusItem *statusItem;
-    NSMenu *menu;
+    NSStatusItem            *statusItem;
+    IBOutlet NSMenu         *statusMenu;
+    IBOutlet NSMenuItem     *hostMenuItem;
 }
 
-@property (retain) IBOutlet NSStatusItem *statusItem;
-@property (retain) IBOutlet NSMenu *statusMenu;
+@property (retain)          NSStatusItem            *statusItem;
+@property (retain) IBOutlet NSMenu                  *statusMenu;
+@property (retain) IBOutlet NSMenuItem              *hostMenuItem;
+
+- (IBAction)doQuit:(id)sender;
 
 @end

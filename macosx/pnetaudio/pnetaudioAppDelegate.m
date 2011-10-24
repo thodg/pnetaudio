@@ -12,18 +12,21 @@
 
 @synthesize statusItem;
 @synthesize statusMenu;
+@synthesize hostMenuItem;
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-	statusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:20];
+	statusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:24];
 	[statusItem retain];
     [statusItem setTitle:@""];
 	[statusItem setImage:[NSImage imageNamed:@"pnetaudio.16.png"]];
 	[statusItem setHighlightMode:YES];
-
-    statusMenu = [NSMenu alloc];
-    [statusMenu addItemWithTitle:@"Quit" action:@selector(stop:) keyEquivalent:@""];
     [statusItem setMenu:statusMenu];
+}
+
+- (IBAction)doQuit:(id)sender
+{
+    [NSApp terminate:self];
 }
 
 @end

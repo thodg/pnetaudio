@@ -14,6 +14,7 @@
 		B74B04291455085A00777DD5 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = B74B04271455085A00777DD5 /* Credits.rtf */; };
 		B74B042C1455085A00777DD5 /* pnetaudioAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B74B042B1455085A00777DD5 /* pnetaudioAppDelegate.m */; };
 		B74B042F1455085A00777DD5 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = B74B042D1455085A00777DD5 /* MainMenu.xib */; };
+		B7846EAF14559F6E008C5D0A /* prefWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = B7846EAE14559F6E008C5D0A /* prefWindowController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,8 @@
 		B74B042A1455085A00777DD5 /* pnetaudioAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = pnetaudioAppDelegate.h; sourceTree = "<group>"; };
 		B74B042B1455085A00777DD5 /* pnetaudioAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = pnetaudioAppDelegate.m; sourceTree = "<group>"; };
 		B74B042E1455085A00777DD5 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		B7846EAD14559F6E008C5D0A /* prefWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = prefWindowController.h; sourceTree = "<group>"; };
+		B7846EAE14559F6E008C5D0A /* prefWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = prefWindowController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +89,8 @@
 			children = (
 				B74B042A1455085A00777DD5 /* pnetaudioAppDelegate.h */,
 				B74B042B1455085A00777DD5 /* pnetaudioAppDelegate.m */,
+				B7846EAD14559F6E008C5D0A /* prefWindowController.h */,
+				B7846EAE14559F6E008C5D0A /* prefWindowController.m */,
 				B74B042D1455085A00777DD5 /* MainMenu.xib */,
 				B74B041F1455085A00777DD5 /* Supporting Files */,
 			);
@@ -168,6 +173,7 @@
 			files = (
 				B74B04261455085A00777DD5 /* main.m in Sources */,
 				B74B042C1455085A00777DD5 /* pnetaudioAppDelegate.m in Sources */,
+				B7846EAF14559F6E008C5D0A /* prefWindowController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
