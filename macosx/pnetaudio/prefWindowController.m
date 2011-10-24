@@ -20,14 +20,11 @@
         withKeyPath:@"values.host"
             options:[NSDictionary dictionaryWithObject:@"192.168.3.42"
                                                 forKey:@"NSContinuouslyUpdatesValue"]];
-    [hostField retain];
-    
     [portField bind:@"value"
            toObject:[NSUserDefaultsController sharedUserDefaultsController]
         withKeyPath:@"values.port"
             options:[NSDictionary dictionaryWithObject:[NSNumber numberWithInteger:9636]
                                                 forKey:@"NSContinuouslyUpdatesValue"]];
-    [portField retain];
 }
 
 - (IBAction)doPreferences:(id)sender

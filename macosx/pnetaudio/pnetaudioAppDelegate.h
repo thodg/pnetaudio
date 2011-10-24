@@ -13,13 +13,16 @@
 @private
     NSStatusItem            *statusItem;
     IBOutlet NSMenu         *statusMenu;
+    IBOutlet NSMenuItem     *enableMenuItem;
     IBOutlet NSMenuItem     *hostMenuItem;
 }
 
 @property (retain)          NSStatusItem            *statusItem;
 @property (retain) IBOutlet NSMenu                  *statusMenu;
+@property (retain) IBOutlet NSMenuItem              *enableMenuItem;
 @property (retain) IBOutlet NSMenuItem              *hostMenuItem;
 
 - (IBAction)doQuit:(id)sender;
+- (IBAction)doEnable:(id)sender;
 
 @end

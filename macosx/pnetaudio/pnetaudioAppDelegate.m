@@ -12,6 +12,7 @@
 
 @synthesize statusItem;
 @synthesize statusMenu;
+@synthesize enableMenuItem;
 @synthesize hostMenuItem;
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
@@ -22,6 +23,26 @@
 	[statusItem setImage:[NSImage imageNamed:@"pnetaudio.16.png"]];
 	[statusItem setHighlightMode:YES];
     [statusItem setMenu:statusMenu];
+}
+
+- (IBAction)doEnable:(id)sender
+{
+    [enableMenuItem setEnabled:NO];
+    
+    //TODO: black icon [statusItem setImage:[NSImage imageNamed:@"pnetaudio.16.enabled"]]
+    [enableMenuItem setTitle:@"Disable network audio"];
+    [enableMenuItem setAction:@selector(doDisable:)];
+    [enableMenuItem setEnabled:YES];
+}
+
+- (IBAction)doDisable:(id)sender
+{
+    [enableMenuItem setEnabled:NO];
+
+    //TODO: gray icon [statusItem setImage:[NSImage imageNamed:@"pnetaudio.16.disabled"]]
+    [enableMenuItem setTitle:@"Enable network audio"];
+    [enableMenuItem setAction:@selector(doEnable:)];
+    [enableMenuItem setEnabled:YES];
 }
 
 - (IBAction)doQuit:(id)sender
