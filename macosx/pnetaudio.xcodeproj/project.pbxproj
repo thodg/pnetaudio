@@ -15,6 +15,11 @@
 		B74B042C1455085A00777DD5 /* pnetaudioAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B74B042B1455085A00777DD5 /* pnetaudioAppDelegate.m */; };
 		B74B042F1455085A00777DD5 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = B74B042D1455085A00777DD5 /* MainMenu.xib */; };
 		B7846EAF14559F6E008C5D0A /* prefWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = B7846EAE14559F6E008C5D0A /* prefWindowController.m */; };
+		B7A193DA1455EBA5003632CE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B7A193D81455EBA5003632CE /* InfoPlist.strings */; };
+		B7A193DD1455EBA5003632CE /* pnetaudioDevice.h in Headers */ = {isa = PBXBuildFile; fileRef = B7A193DC1455EBA5003632CE /* pnetaudioDevice.h */; };
+		B7A193DF1455EBA5003632CE /* pnetaudioDevice.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7A193DE1455EBA5003632CE /* pnetaudioDevice.cpp */; };
+		B7A193E614562BE2003632CE /* PNetAudioEngine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7A193E414562BE2003632CE /* PNetAudioEngine.cpp */; };
+		B7A193E714562BE2003632CE /* PNetAudioEngine.h in Headers */ = {isa = PBXBuildFile; fileRef = B7A193E514562BE2003632CE /* PNetAudioEngine.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +39,15 @@
 		B74B042E1455085A00777DD5 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		B7846EAD14559F6E008C5D0A /* prefWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = prefWindowController.h; sourceTree = "<group>"; };
 		B7846EAE14559F6E008C5D0A /* prefWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = prefWindowController.m; sourceTree = "<group>"; };
+		B7A193D31455EBA5003632CE /* pnetaudiodev.kext */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = pnetaudiodev.kext; sourceTree = BUILT_PRODUCTS_DIR; };
+		B7A193D41455EBA5003632CE /* Kernel.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kernel.framework; path = System/Library/Frameworks/Kernel.framework; sourceTree = SDKROOT; };
+		B7A193D71455EBA5003632CE /* pnetaudiodev-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "pnetaudiodev-Info.plist"; sourceTree = "<group>"; };
+		B7A193D91455EBA5003632CE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		B7A193DB1455EBA5003632CE /* pnetaudiodev-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "pnetaudiodev-Prefix.pch"; sourceTree = "<group>"; };
+		B7A193DC1455EBA5003632CE /* pnetaudioDevice.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = pnetaudioDevice.h; sourceTree = "<group>"; };
+		B7A193DE1455EBA5003632CE /* pnetaudioDevice.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = pnetaudioDevice.cpp; sourceTree = "<group>"; };
+		B7A193E414562BE2003632CE /* PNetAudioEngine.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PNetAudioEngine.cpp; sourceTree = "<group>"; };
+		B7A193E514562BE2003632CE /* PNetAudioEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PNetAudioEngine.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,13 +59,21 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B7A193CE1455EBA5003632CE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		B74B04091455085900777DD5 = {
 			isa = PBXGroup;
 			children = (
-				B74B041E1455085A00777DD5 /* pnetaudio */,
+				B74B041E1455085A00777DD5 /* ui */,
+				B7A193D51455EBA5003632CE /* device */,
 				B74B04171455085A00777DD5 /* Frameworks */,
 				B74B04151455085A00777DD5 /* Products */,
 			);
@@ -61,6 +83,7 @@
 			isa = PBXGroup;
 			children = (
 				B74B04141455085A00777DD5 /* pnetaudio.app */,
+				B7A193D31455EBA5003632CE /* pnetaudiodev.kext */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -80,11 +103,12 @@
 				B74B041B1455085A00777DD5 /* AppKit.framework */,
 				B74B041C1455085A00777DD5 /* CoreData.framework */,
 				B74B041D1455085A00777DD5 /* Foundation.framework */,
+				B7A193D41455EBA5003632CE /* Kernel.framework */,
 			);
 			name = "Other Frameworks";
 			sourceTree = "<group>";
 		};
-		B74B041E1455085A00777DD5 /* pnetaudio */ = {
+		B74B041E1455085A00777DD5 /* ui */ = {
 			isa = PBXGroup;
 			children = (
 				B74B042A1455085A00777DD5 /* pnetaudioAppDelegate.h */,
@@ -94,6 +118,7 @@
 				B74B042D1455085A00777DD5 /* MainMenu.xib */,
 				B74B041F1455085A00777DD5 /* Supporting Files */,
 			);
+			name = ui;
 			path = pnetaudio;
 			sourceTree = "<group>";
 		};
@@ -110,7 +135,42 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		B7A193D51455EBA5003632CE /* device */ = {
+			isa = PBXGroup;
+			children = (
+				B7A193DC1455EBA5003632CE /* pnetaudioDevice.h */,
+				B7A193DE1455EBA5003632CE /* pnetaudioDevice.cpp */,
+				B7A193E514562BE2003632CE /* PNetAudioEngine.h */,
+				B7A193E414562BE2003632CE /* PNetAudioEngine.cpp */,
+				B7A193D61455EBA5003632CE /* Supporting Files */,
+			);
+			name = device;
+			path = pnetaudiodev;
+			sourceTree = "<group>";
+		};
+		B7A193D61455EBA5003632CE /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				B7A193D71455EBA5003632CE /* pnetaudiodev-Info.plist */,
+				B7A193D81455EBA5003632CE /* InfoPlist.strings */,
+				B7A193DB1455EBA5003632CE /* pnetaudiodev-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		B7A193CF1455EBA5003632CE /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B7A193DD1455EBA5003632CE /* pnetaudioDevice.h in Headers */,
+				B7A193E714562BE2003632CE /* PNetAudioEngine.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
 		B74B04131455085A00777DD5 /* pnetaudio */ = {
@@ -130,6 +190,25 @@
 			productReference = B74B04141455085A00777DD5 /* pnetaudio.app */;
 			productType = "com.apple.product-type.application";
 		};
+		B7A193D21455EBA5003632CE /* pnetaudiodev */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B7A193E21455EBA5003632CE /* Build configuration list for PBXNativeTarget "pnetaudiodev" */;
+			buildPhases = (
+				B7A193CD1455EBA5003632CE /* Sources */,
+				B7A193CE1455EBA5003632CE /* Frameworks */,
+				B7A193CF1455EBA5003632CE /* Headers */,
+				B7A193D01455EBA5003632CE /* Resources */,
+				B7A193D11455EBA5003632CE /* Rez */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = pnetaudiodev;
+			productName = pnetaudiodev;
+			productReference = B7A193D31455EBA5003632CE /* pnetaudiodev.kext */;
+			productType = "com.apple.product-type.kernel-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -148,6 +227,7 @@
 			projectRoot = "";
 			targets = (
 				B74B04131455085A00777DD5 /* pnetaudio */,
+				B7A193D21455EBA5003632CE /* pnetaudiodev */,
 			);
 		};
 /* End PBXProject section */
@@ -164,7 +244,25 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B7A193D01455EBA5003632CE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B7A193DA1455EBA5003632CE /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXRezBuildPhase section */
+		B7A193D11455EBA5003632CE /* Rez */ = {
+			isa = PBXRezBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXRezBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		B74B04101455085A00777DD5 /* Sources */ = {
@@ -174,6 +272,15 @@
 				B74B04261455085A00777DD5 /* main.m in Sources */,
 				B74B042C1455085A00777DD5 /* pnetaudioAppDelegate.m in Sources */,
 				B7846EAF14559F6E008C5D0A /* prefWindowController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B7A193CD1455EBA5003632CE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B7A193DF1455EBA5003632CE /* pnetaudioDevice.cpp in Sources */,
+				B7A193E614562BE2003632CE /* PNetAudioEngine.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -202,6 +309,14 @@
 				B74B042E1455085A00777DD5 /* en */,
 			);
 			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+		B7A193D81455EBA5003632CE /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B7A193D91455EBA5003632CE /* en */,
+			);
+			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -269,6 +384,44 @@
 			};
 			name = Release;
 		};
+		B7A193E01455EBA5003632CE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1.0.0d1;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "pnetaudiodev/pnetaudiodev-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				INFOPLIST_FILE = "pnetaudiodev/pnetaudiodev-Info.plist";
+				MODULE_NAME = net.lowh.pnetaudiodev;
+				MODULE_VERSION = 1.0.0d1;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = kext;
+			};
+			name = Debug;
+		};
+		B7A193E11455EBA5003632CE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				CURRENT_PROJECT_VERSION = 1.0.0d1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "pnetaudiodev/pnetaudiodev-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				INFOPLIST_FILE = "pnetaudiodev/pnetaudiodev-Info.plist";
+				MODULE_NAME = net.lowh.pnetaudiodev;
+				MODULE_VERSION = 1.0.0d1;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = kext;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -289,6 +442,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		B7A193E21455EBA5003632CE /* Build configuration list for PBXNativeTarget "pnetaudiodev" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B7A193E01455EBA5003632CE /* Debug */,
+				B7A193E11455EBA5003632CE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};
