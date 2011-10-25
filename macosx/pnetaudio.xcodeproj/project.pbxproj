@@ -20,6 +20,7 @@
 		B7A193DF1455EBA5003632CE /* pnetaudioDevice.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7A193DE1455EBA5003632CE /* pnetaudioDevice.cpp */; };
 		B7A193E614562BE2003632CE /* PNetAudioEngine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7A193E414562BE2003632CE /* PNetAudioEngine.cpp */; };
 		B7A193E714562BE2003632CE /* PNetAudioEngine.h in Headers */ = {isa = PBXBuildFile; fileRef = B7A193E514562BE2003632CE /* PNetAudioEngine.h */; };
+		B7A193E91456D550003632CE /* classes.h in Headers */ = {isa = PBXBuildFile; fileRef = B7A193E81456D550003632CE /* classes.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 		B7A193DE1455EBA5003632CE /* pnetaudioDevice.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = pnetaudioDevice.cpp; sourceTree = "<group>"; };
 		B7A193E414562BE2003632CE /* PNetAudioEngine.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PNetAudioEngine.cpp; sourceTree = "<group>"; };
 		B7A193E514562BE2003632CE /* PNetAudioEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PNetAudioEngine.h; sourceTree = "<group>"; };
+		B7A193E81456D550003632CE /* classes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = classes.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,6 +153,7 @@
 		B7A193D61455EBA5003632CE /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				B7A193E81456D550003632CE /* classes.h */,
 				B7A193D71455EBA5003632CE /* pnetaudiodev-Info.plist */,
 				B7A193D81455EBA5003632CE /* InfoPlist.strings */,
 				B7A193DB1455EBA5003632CE /* pnetaudiodev-Prefix.pch */,
@@ -167,6 +170,7 @@
 			files = (
 				B7A193DD1455EBA5003632CE /* pnetaudioDevice.h in Headers */,
 				B7A193E714562BE2003632CE /* PNetAudioEngine.h in Headers */,
+				B7A193E91456D550003632CE /* classes.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

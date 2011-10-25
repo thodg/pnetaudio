@@ -16,7 +16,7 @@
 // OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 //
 // macosx/device/ - Audio interface driver kernel extension for Mac OS X
-// pnetaudioDevice - Virtual audio device
+// PNetAudioEngine - Transfer audio from/to our virtual device
 //
 
 #include <IOKit/audio/IOAudioControl.h>
@@ -37,7 +37,7 @@ static IOReturn controlValueChangeHandler (IOService *target,
 					   SInt32 oldValue,
 					   SInt32 newValue);
 
-virtual bool
+bool
 PNetAudioDevice::initHardware (IOService *provider)
 {
   if (!super::initHardware(provider)) {
@@ -50,7 +50,7 @@ PNetAudioDevice::initHardware (IOService *provider)
   return createAudioEngine();
 }
 
-virtual bool
+bool
 PNetAudioDevice::createAudioEngine ()
 {
   bool res = false;
@@ -159,7 +159,7 @@ PNetAudioDevice::createAudioEngine ()
   return res;
 }
 
-virtual void
+void
 PNetAudioDevice::free ()
 {
   super::free();
@@ -168,15 +168,15 @@ PNetAudioDevice::free ()
 static IOReturn controlValueChangeHandler (IOService *target,
 					   IOAudioControl *ctl,
 					   SInt32 old_val,
-					   SInt32 new_val);
+					   SInt32 new_val)
 {
-  PNetAudioDevice *dev = <static_cast(PNetAudioDevice*)> target;
+  PNetAudioDevice *dev = (PNetAudioDevice*) target;
   if (!dev)
     return kIOReturnBadArgument;
-  return dev->volumeChanged(ctl, old_val, new_val);
+  return dev->controlValueChanged(ctl, old_val, new_val);
 }
 
-virtual IOReturn
+IOReturn
 PNetAudioDevice::controlValueChanged (IOAudioControl *ctl,
 				      SInt32 old_val,
 				      SInt32 new_val)

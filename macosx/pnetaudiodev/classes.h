@@ -16,38 +16,16 @@
 // OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 //
 // macosx/device/ - Audio interface driver kernel extension for Mac OS X
-// pnetaudioDevice - Virtual audio device
+// classes.h - Forward definitions
 //
 
-#ifndef  PNETAUDIODEVICE_H
-# define PNETAUDIODEVICE_H
+#ifndef  PNETAUDIO_CLASSES_H
+# define PNETAUDIO_CLASSES_H
 
-# include <IOKit/audio/IOAudioDevice.h>
-# include "classes.h"
+# define PNetAudioDevice net_lowh_pnetaudio_PNetAudioDevice
+# define PNetAudioEngine net_lowh_pnetaudio_PNetAudioEngine
 
-class PNetAudioDevice : public IOAudioDevice
-{
-public:
-
-  virtual void
-  free ();
-
-  virtual bool
-  initHardware (IOService *provider);
-
-  virtual bool
-  createAudioEngine ();
-
-  virtual IOReturn
-  controlValueChanged (IOAudioControl *ctl,
-		       SInt32 old_val,
-		       SInt32 new_val);
-
-private:
-
-  OSDeclareDefaultStructors(PNetAudioDevice);
-
-  friend class PNetAudioEngine;
-};
+class PNetAudioDevice;
+class PNetAudioEngine;
 
 #endif

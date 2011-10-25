@@ -16,15 +16,14 @@
 // OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 //
 // macosx/device/ - Audio interface driver kernel extension for Mac OS X
-// pnetaudioEngine - ?
+// PNetAudioEngine - Transfer audio from/to our virtual device
 //
 
 #ifndef  PNETAUDIOENGINE_H
 # define PNETAUDIOENGINE_H
 
 # include <IOKit/audio/IOAudioDevice.h>
-
-# define PNetAudioEngine net_lowh_pnetaudio_PNetAudioEngine
+# include "classes.h"
 
 class PNetAudioEngine : public IOAudioEngine
 {

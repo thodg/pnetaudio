@@ -31,15 +31,15 @@
 
 #define super IOAudioEngine
 
-OSDefineMetaClassAndStructors(SampleAudioEngine, IOAudioEngine)
+OSDefineMetaClassAndStructors(PNetAudioEngine, IOAudioEngine)
 
-virtual bool
+bool
 PNetAudioEngine::init ()
 {
   return super::init(0);
 }
 
-virtual void
+void
 PNetAudioEngine::free ()
 {
   if (inputBuffer) {
@@ -53,7 +53,7 @@ PNetAudioEngine::free ()
   super::free();
 }
 
-virtual bool
+bool
 PNetAudioEngine::initHardware (IOService *provider)
 {
   if (!super::initHardware(provider))
@@ -93,10 +93,14 @@ PNetAudioEngine::initHardware (IOService *provider)
   return res;
 }
 
-virtual void
-PNetAudioEngine::stop (IOService *provider);
+void
+PNetAudioEngine::stop (IOService *provider)
+{
+  //TODO
+  super::stop(provider);
+}
 
-virtual IOAudioStream *
+IOAudioStream *
 PNetAudioEngine::createNewAudioStream (IOAudioStreamDirection direction,
 				       void *sampleBuffer,
 				       UInt32 sampleBufferSize)
@@ -104,8 +108,8 @@ PNetAudioEngine::createNewAudioStream (IOAudioStreamDirection direction,
   IOAudioStream *stream = new IOAudioStream;
   if (!stream)
     return 0;
-  if (!audioStream->initWithAudioEngine(this, direction, 1)) {
-    audioStream->release();
+  if (!stream->initWithAudioEngine(this, direction, 1)) {
+    stream->release();
     return 0;
   }
   IOAudioStreamFormat format = {
@@ -127,7 +131,7 @@ PNetAudioEngine::createNewAudioStream (IOAudioStreamDirection direction,
   return stream;
 }
   
-virtual IOReturn
+IOReturn
 PNetAudioEngine::performAudioEngineStart ()
 {
   takeTimeStamp(false); // no looping
@@ -136,31 +140,31 @@ PNetAudioEngine::performAudioEngineStart ()
 }
 
 
-virtual IOReturn
+IOReturn
 PNetAudioEngine::performAudioEngineStop()
 {
   //TODO
   return kIOReturnSuccess;
 }
   
-virtual UInt32
+UInt32
 PNetAudioEngine::getCurrentSampleFrame ()
 {
   //TODO
   return 0;
 }
   
-virtual IOReturn
+IOReturn
 PNetAudioEngine::performFormatChange (IOAudioStream *stream,
 				      const IOAudioStreamFormat *new_format,
 				      const IOAudioSampleRate *new_rate)
 {
-  if (new_rate && new_rate->whole == SAMPLE_RATE && new_rate.fraction == 0)
+  if (new_rate && new_rate->whole == SAMPLE_RATE && new_rate->fraction == 0)
     return kIOReturnSuccess;
   return kIOReturnError;
 }
 
-virtual IOReturn
+IOReturn
 PNetAudioEngine::clipOutputSamples (const void *pmixbuf,
 				    void *poutbuf,
 				    UInt32 first_sample_frame,
@@ -173,14 +177,14 @@ PNetAudioEngine::clipOutputSamples (const void *pmixbuf,
   UInt32 i = num_sample_frames * format->fNumChannels;
   while (i--) {
     float s = *mixbuf;
-    if (s > 1.0)
-      s = 1.0;
-    else if (s < -1.0)
-      s = -1.0;
-    if (s >= 0.0)
-      *outbuf = (SInt16) (s * 32767.0);
+    if (s > 1.0f)
+      s = 1.0f;
+    else if (s < -1.0f)
+      s = -1.0f;
+    if (s >= 0.0f)
+      *outbuf = (SInt16) (s * 32767.0f);
     else
-      *outbuf = (SInt16) (s * 32768.0);
+      *outbuf = (SInt16) (s * 32768.0f);
     mixbuf++;
     outbuf++;
   }
@@ -188,7 +192,7 @@ PNetAudioEngine::clipOutputSamples (const void *pmixbuf,
   return kIOReturnSuccess;
 }
 
-virtual IOReturn
+IOReturn
 PNetAudioEngine::convertInputSamples (const void *pinbuf,
 				      void *poutbuf,
 				      UInt32 first_sample_frame,
@@ -202,9 +206,9 @@ PNetAudioEngine::convertInputSamples (const void *pinbuf,
   while (i--) {
     SInt s = *inbuf;
     if (s >= 0)
-      *outbuf = (float) (s / 32767.0);
+      *outbuf = (float) (s / 32767.0f);
     else
-      *outbuf = (float) (s * 32768.0);
+      *outbuf = (float) (s * 32768.0f);
     inbuf++;
     outbuf++;
   }
